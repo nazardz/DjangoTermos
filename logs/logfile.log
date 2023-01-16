@@ -1,0 +1,63 @@
+[I 230105 12:18:00 meteoserv:27] start meteostat
+[E 230105 12:18:00 meteoserv:30] Bad message (TypeError('not all arguments converted during string formatting')): {'name': 'logzero_default', 'msg': 'Unexpected error:', 'args': (KeyError('logMaxByte'),), 'levelname': 'ERROR', 'levelno': 40, 'pathname': '/home/dan2/PycharmProjects/DjangoTermos/meteoserv.py', 'filename': 'meteoserv.py', 'module': 'meteoserv', 'exc_info': None, 'exc_text': None, 'stack_info': None, 'lineno': 30, 'funcName': '<module>', 'created': 1672899480.0151463, 'msecs': 15.146255493164062, 'relativeCreated': 470.09968757629395, 'thread': 140121769162560, 'threadName': 'MainThread', 'processName': 'MainProcess', 'process': 16904, 'message': 'Bad message (TypeError(\'not all arguments converted during string formatting\')): {\'name\': \'logzero_default\', \'msg\': \'Unexpected error:\', \'args\': (KeyError(\'logMaxByte\'),), \'levelname\': \'ERROR\', \'levelno\': 40, \'pathname\': \'/home/dan2/PycharmProjects/DjangoTermos/meteoserv.py\', \'filename\': \'meteoserv.py\', \'module\': \'meteoserv\', \'exc_info\': None, \'exc_text\': None, \'stack_info\': None, \'lineno\': 30, \'funcName\': \'<module>\', \'created\': 1672899480.0151463, \'msecs\': 15.146255493164062, \'relativeCreated\': 470.09968757629395, \'thread\': 140121769162560, \'threadName\': \'MainThread\', \'processName\': \'MainProcess\', \'process\': 16904, \'message\': "Bad message (TypeError(\'not all arguments converted during string formatting\')): {\'name\': \'logzero_default\', \'msg\': \'Unexpected error:\', \'args\': (KeyError(\'logMaxByte\'),), \'levelname\': \'ERROR\', \'levelno\': 40, \'pathname\': \'/home/dan2/PycharmProjects/DjangoTermos/meteoserv.py\', \'filename\': \'meteoserv.py\', \'module\': \'meteoserv\', \'exc_info\': None, \'exc_text\': None, \'stack_info\': None, \'lineno\': 30, \'funcName\': \'<module>\', \'created\': 1672899480.0151463, \'msecs\': 15.146255493164062, \'relativeCreated\': 470.09968757629395, \'thread\': 140121769162560, \'threadName\': \'MainThread\', \'processName\': \'MainProcess\', \'process\': 16904}", \'asctime\': \'230105 12:18:00\', \'color\': \'\', \'end_color\': \'\'}', 'asctime': '230105 12:18:00', 'color': '', 'end_color': ''}
+[I 230105 12:18:28 meteoserv:27] start meteostat
+[E 230105 12:18:28 meteoserv:30] Unexpected error: 'logMaxByte'
+[I 230105 12:19:40 meteoserv:29] start meteostat
+[I 230105 12:26:31 meteoserv:29] start meteostat
+[I 230109 09:41:32 meteoserv:30] start meteostat
+[I 230109 09:41:42 meteoserv:30] start meteostat
+[I 230109 09:46:06 meteoserv:40] start meteostat
+[I 230109 09:48:15 meteoserv:41] start meteostat
+[E 230109 09:48:15 meteoserv:45] Unexpected error: [Errno 98] Address already in use
+[I 230109 09:48:24 meteoserv:41] start meteostat
+[I 230109 09:51:10 meteoserv:41] start meteostat
+[I 230109 09:51:10 meteoserv:42] host:localhost; port:3051
+[I 230109 09:53:11 meteoserv:44] start meteostat
+[I 230109 09:53:11 meteoserv:45] host:dan2 127.0.1.1; port:3051
+[I 230109 09:54:53 meteoserv:44] start meteostat
+[I 230109 09:54:53 meteoserv:45] host:dan2 127.0.1.1; port:3051
+[I 230109 09:55:12 meteoserv:44] start meteostat
+[I 230109 09:55:12 meteoserv:45] host:dan2 127.0.1.1; port:3051
+[I 230109 09:55:24 meteoserv:44] start meteostat
+[I 230109 09:55:24 meteoserv:45] host:dan2 1; port:3051
+[I 230109 09:55:36 meteoserv:44] start meteostat
+[I 230109 09:55:36 meteoserv:45] host:dan2 ['127.0.1.1']; port:3051
+[I 230109 09:55:40 meteoserv:44] start meteostat
+[I 230109 09:55:40 meteoserv:45] host:dan2 ('dan2', [], ['127.0.1.1']); port:3051
+[I 230109 09:57:41 meteoserv:57] start meteostat
+[I 230109 09:57:41 meteoserv:58] host:192.168.204.151; port:3051
+[I 230109 09:58:04 meteoserv:57] start meteostat
+[I 230109 09:58:04 meteoserv:58] 192.168.204.151 serving at port 3051
+[I 230109 10:03:47 meteoserv:60] start meteostat
+[I 230109 10:03:47 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:04:08 meteoserv:59] b'192.168.204.151 172.17.0.1 \n'
+[I 230109 10:04:08 meteoserv:60] start meteostat
+[I 230109 10:04:08 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:04:36 meteoserv:59] 192.168.204.151 172.17.0.1
+[I 230109 10:04:36 meteoserv:60] start meteostat
+[I 230109 10:04:36 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:04:54 meteoserv:59] 192.168.204.151 172.17.0.1 
+    
+[I 230109 10:04:54 meteoserv:60] start meteostat
+[I 230109 10:04:54 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:05:00 meteoserv:59] 192.168.204.151 172.17.0.1 
+    
+[I 230109 10:05:00 meteoserv:60] start meteostat
+[I 230109 10:05:00 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:05:11 meteoserv:59] 2
+[I 230109 10:05:11 meteoserv:60] start meteostat
+[I 230109 10:05:11 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:05:36 meteoserv:59] ['192.168.204.151', '172.17.0.1']
+[I 230109 10:05:36 meteoserv:60] start meteostat
+[I 230109 10:05:36 meteoserv:61] 192.168.204.151 serving at port 3051
+[E 230109 10:05:42 meteoserv:64] Unexpected error: list index out of range
+[I 230109 10:05:46 meteoserv:59] 172.17.0.1
+[I 230109 10:05:46 meteoserv:60] start meteostat
+[I 230109 10:05:46 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:07:23 meteoserv:60] start meteostat
+[I 230109 10:07:23 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:08:08 meteoserv:60] start meteostat
+[I 230109 10:08:08 meteoserv:61] 172.17.0.1 serving at port 3051
+[I 230109 10:08:37 meteoserv:60] start meteostat
+[I 230109 10:08:37 meteoserv:61] 192.168.204.151 serving at port 3051
+[I 230109 10:09:09 meteoserv:60] serving at 192.168.204.151:3051
