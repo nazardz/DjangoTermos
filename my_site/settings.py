@@ -130,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'termos-home'
 LOGIN_URL = 'login'
+
+AUTH_PROFILE_MODULE = 'user_profile.UserProfile'

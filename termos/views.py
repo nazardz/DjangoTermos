@@ -48,6 +48,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
+
     fields = ['stations']
 
     def get_meteostat(self, request_params):
@@ -69,6 +70,9 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        profile = self.request.user.profile
+
+        #user_profile.UserProfile
 
         #url = post.station_form form.instance.stations
 
@@ -77,6 +81,10 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         resp = self.get_meteostat(req_params)
         if resp['code'] == 0:
             messages.error(self.request, resp['msg'])
+
+            #Profile.service_use_counter = Profile.service_use_counter + 1
+
+
             return super().form_invalid(form)
         else:
             #form.instance.title = f"Станция {form.instance.stations}"
@@ -91,6 +99,10 @@ class PostCreateView(LoginRequiredMixin, CreateView):
                           f"pm5: {resp['msg']['pm5']}"
 
             form.instance.content = res_content
+
+            # profile use counter
+            profile.service_use_counter += 1
+            profile.save()
 
             return super().form_valid(form)
 

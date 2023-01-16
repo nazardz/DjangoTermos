@@ -5,9 +5,10 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Новый запрос</legend>
+                <legend class="border-bottom mb-4">Новый запрос </legend>
                 {{ form|crispy }}
             </fieldset>
+             <p class="article-content"> Количество ваших запросов: {{user.profile.service_use_counter}}</p>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Отправить</button>
             </div>

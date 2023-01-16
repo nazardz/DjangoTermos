@@ -4,7 +4,7 @@ from PIL import Image
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE ) #, related_name="userprofile")
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     service_use_counter = models.IntegerField(editable=False, help_text="Количество запросов", default=0)
 
@@ -20,3 +20,6 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+    def get_profile(self):
+        return self
