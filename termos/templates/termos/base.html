@@ -39,6 +39,9 @@
             <!-- Правая часть навигационной панели -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                    <a class="nav-item nav-link" href="{% url 'station-create' %}">Новый станция</a>
+                {% endif %}
                 <a class="nav-item nav-link" href="{% url 'post-create' %}">Новый запрос</a>
                 <a class="nav-item nav-link" href="{% url 'profile' %}">Профиль</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Выход</a>
@@ -56,9 +59,18 @@
         <div class="col-md-8">
           {% if messages %}
             {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}">
+              <!--<div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>-->
+            {% if message.tags == "error"%}
+              <div class="alert alert-danger">
                 {{ message }}
               </div>
+              {% else %}
+              <div class="alert alert-success">
+                {{ message }}
+              </div>
+              {% endif %}
             {% endfor %}
           {% endif %}
           {% block content %}{% endblock %}

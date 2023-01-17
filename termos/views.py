@@ -23,9 +23,27 @@ def home(request):
     return render(request, 'termos/home.html', context)
 
 
+def get_meteostat(request_params):
+    url = request_params['url']
+    response = {'msg': f"Cтанция {url} недоступна. Поробуйте еще раз", 'code': 0}
+    try:
+        r = requests.get(url, timeout=TIMEOUT)
+        if r.status_code == 200:
+            response['msg'] = r.json()
+            response['code'] = 1
+    except requests.exceptions.ReadTimeout:
+        pass
+    except requests.exceptions.ConnectTimeout:
+        pass
+    except requests.exceptions.ConnectionError:
+        response['msg'] = f"Cтанция {url} выключена."
+
+    return response
+
+
 class PostListView(ListView):
     model = Post
-    template_name = 'termos/home.html'  
+    template_name = 'termos/home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = PAGINATION
@@ -39,7 +57,7 @@ class UserPostListView(ListView):
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Post.objects.filter(author=user).order_by('-date_posted')  
+        return Post.objects.filter(author=user).order_by('-date_posted')
 
 
 class PostDetailView(DetailView):
@@ -51,23 +69,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     fields = ['stations']
 
-    def get_meteostat(self, request_params):
-        url = request_params['url']
-        response = {'msg': f"Cтанция {url} недоступна. Поробуйте еще раз", 'code': 0}
-        try:
-            r = requests.get(url, timeout=TIMEOUT)
-            if r.status_code == 200:
-                response['msg'] = r.json()
-                response['code'] = 1
-        except requests.exceptions.ReadTimeout:
-            pass
-        except requests.exceptions.ConnectTimeout:
-            pass
-        except requests.exceptions.ConnectionError:
-            response['msg'] = f"Cтанция {url} выключена."
-
-        return response
-
     def form_valid(self, form):
         form.instance.author = self.request.user
         profile = self.request.user.profile
@@ -78,7 +79,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
         req_params = {"url": form.instance.stations.address, "params": []}
 
-        resp = self.get_meteostat(req_params)
+        resp = get_meteostat(req_params)
         if resp['code'] == 0:
             messages.error(self.request, resp['msg'])
 
@@ -104,6 +105,25 @@ class PostCreateView(LoginRequiredMixin, CreateView):
             profile.service_use_counter += 1
             profile.save()
 
+            return super().form_valid(form)
+
+
+class StationCreateView(LoginRequiredMixin, CreateView):
+    model = Station
+    fields = ['name', 'address']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+
+        req_params = {"url": form.instance.address, "params": []}
+        resp = get_meteostat(req_params)
+
+        if resp['code'] == 0:
+            messages.error(self.request, "Cтанция недоступна")
+            # messages.constants.messages .ERROR: "Cтанция недоступна"
+            return super().form_invalid(form)
+        else:
+            messages.success(self.request, "Cтанция добавлена")
             return super().form_valid(form)
 
 
@@ -135,3 +155,4 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'termos/about.html', {'title': 'Meteostation Web'})
+

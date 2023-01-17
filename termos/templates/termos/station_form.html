@@ -1,0 +1,20 @@
+{% extends "termos/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            {% if user.is_superuser %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Новый станция</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Добавить</button>
+            </div>
+            {% else %}
+                 <legend class="border-bottom mb-4">У вас нет доступа</legend>
+            {% endif %}
+        </form>
+    </div>
+{% endblock content %}

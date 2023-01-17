@@ -9,7 +9,10 @@ class Station(models.Model):
     address = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name  # title
+        return self.name or ""   # title
+
+    def get_absolute_url(self):
+        return reverse('station-create')
 
 
 class Post(models.Model):
@@ -20,7 +23,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.stations  # title
+        return self.stations or ""  # title
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
