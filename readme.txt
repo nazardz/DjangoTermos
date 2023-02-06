@@ -12,6 +12,7 @@
 
 
 Запуск сервера:
+	python3 manage.py createsuperuser
 	python3 manage.py runserver [127.0.0.1:8000 - по умолчанию, можно изменит]
 ИЛИ просто
 	python3 manage.py runserver 
