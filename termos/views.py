@@ -35,6 +35,8 @@ def get_meteostat(request_params):
         pass
     except requests.exceptions.ConnectTimeout:
         pass
+    except requests.exceptions.InvalidSchema:
+        pass
     except requests.exceptions.ConnectionError:
         response['msg'] = f"Cтанция {url} выключена."
 
