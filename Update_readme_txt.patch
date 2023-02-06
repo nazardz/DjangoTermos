@@ -1,0 +1,18 @@
+Subject: [PATCH] Update readme.txt
+---
+Index: readme.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/readme.txt b/readme.txt
+--- a/readme.txt	(revision ffe970661d6684f7e2c64f9ea710ec3a08052c36)
++++ b/readme.txt	(revision 57bdf5d393ccc32b61025dbe558701699838e9c5)
+@@ -12,6 +12,7 @@
+ 
+ 
+ Запуск сервера:
++	python3 manage.py createsuperuser
+ 	python3 manage.py runserver [127.0.0.1:8000 - по умолчанию, можно изменит]
+ ИЛИ просто
+ 	python3 manage.py runserver 
